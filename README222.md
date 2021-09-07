@@ -61,10 +61,6 @@ python main.py 6901095904892321800
     那就使用英文路径吧，文件名是中文没问题
 
 
-## 预览
-项目`pdfs\HTML5 游戏开发快速提升.pdf`是已经生成好的pdf文件。
-
-
 ### 参考引用
 
 [python+markdown+Pygments高亮代码](https://blog.csdn.net/JONE_WUQINGJIANG/article/details/100511760)
