@@ -48,12 +48,18 @@
 4. 执行命令 
 bid: 小册ID
 ```python   
-python main.py [bid]
+python main.py [bid] 
 
 ```
 示例: 注意引用
 ```python
 python main.py 6901095904892321800
+```
+
+如果是下载某个用户的所有小册, 后面再追加一个固定参数 `u`
+示例：
+```python
+python main.py 131597122679661 u
 ```
 
 

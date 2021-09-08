@@ -2,6 +2,7 @@
 import requests
 import json
 import os
+import uutils;
 
 URL = {
     "bookletList": "https://api.juejin.cn/booklet_api/v1/booklet/listbybuyer",
@@ -80,14 +81,7 @@ def saveSectionContent(bid, aid, content):
         f.write(content)
 
 
-def downloadBooklet(bid):
-
-    booklet = getBooklet(bid)
-    print("booklet", booklet);
-    print("获取小册信息成功，小册名称：", booklet["data"]["booklet"]["base_info"]["title"])
-    saveBooklet(bid, json.dumps(booklet["data"]))
-
-    sectionList = booklet["data"]["sections"]
+def downloadSections(bid, sectionList):    
     print("sections 长度：", len(sectionList))
 
     saveSectionList(bid, json.dumps(sectionList));
@@ -99,3 +93,15 @@ def downloadBooklet(bid):
         seContent = getSection(sid)
         saveSectionContent(bid, sid, json.dumps(seContent["data"]))
         print("Section ID为 %s 的章节下载完毕" % sid)
+
+
+def downloadBooklet(bid):
+
+    booklet = getBooklet(bid)
+    print("booklet", booklet["err_msg"]);
+
+    title = booklet["data"]["booklet"]["base_info"]["title"]
+    print("获取小册信息成功，小册名称：", title)
+    saveBooklet(bid, json.dumps(booklet["data"]))
+
+    return booklet["data"];
